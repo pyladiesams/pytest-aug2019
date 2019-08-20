@@ -1,60 +1,58 @@
 # Project Title
 
-One Paragraph of project description goes here
+This is a simple Flask application for storing and getting ToDo tasks.
+It uses Flask and SQLite.  
+We're going to write some tests for it.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+* Clone this repo
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+You will need Python(I have 3.7 on my machine, but 3.5+ will work), also pip for installation packages.
 
 ### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
+* If you don't have virtualenv, you should install it.
 ```
-Give the example
+pip install virtualenv
 ```
-
-And repeat
-
+* Create a virtual environment
 ```
-until finished
+python -m venv name_of_your_virtual_env
 ```
-
-End with an example of getting some data out of the system or using it for a little demo
+* Activate it
+```
+source name_of_your_virtual_env/bin/activate
+```
+* Add to the environment variable PYTHONPATH to direcrory with cloned repo:
+```
+export PYTHONPATH="${PYTHONPATH:+/Path/to/this/repo/pytest-aug2019}"
+```
+* Install required libs in your virtual environment:
+```
+pip install -r requirements.txt
+```
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+* Go to application folder:
+```
+cd application
+
+```
+* Run tests all the tests:
+```
+pytest
+
+```
+
 
 ### Break down into end to end tests
 
-Explain what these tests test and why
+* e2e tests should be placed in `application/tests/tests_e2e.py`
+* Tests with mocked database should be placed in `application/tests/tests_db_mocked.py`
 
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Authors
-
-* your name if you like
 
 ## Acknowledgments
 
