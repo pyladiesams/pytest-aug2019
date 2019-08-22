@@ -1,5 +1,6 @@
 from datetime import datetime
 import pytest
+from flask import jsonify
 
 from application.app import db, app
 
@@ -8,8 +9,10 @@ class MockedTask():
         self.id = task_id
         self.text = text
         self.date = date
+        __call__ = lambda x:x
 
-    def serialize():
+    @property
+    def serialize(self):
         return {
         'id': self.id,
         'text': self.text,
@@ -21,7 +24,6 @@ def client_mocked(mocker):
     mocker.patch("flask_sqlalchemy.SQLAlchemy.create_all", return_value=True)
     mocker.patch(
     "application.app.get_task",
-    return_value=MockedTask(1,
-    "mock", datetime.now().strftime("%Y-%m-%d %H:%M")))
+    return_value=MockedTask(1, "mock", datetime.now()))
     client = app.test_client()
     return client
