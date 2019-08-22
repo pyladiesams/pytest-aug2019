@@ -13,12 +13,12 @@ class Circle():
 
     @property
     def surface_area(self):
-        self.surface_area = self.surface_area_circle()
-        return self.surface_area
+        self._surface_area = self.surface_area_circle()
+        return self._surface_area
 
     @surface_area.setter
     def surface_area(self, value):
         self._surface_area = value
 
     def surface_area_circle(self):
-        return 3.14 * self.radius *  self.radius
+        return 3.14 * self.radius * self.radius
